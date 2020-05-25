@@ -24,7 +24,7 @@ public class Profile implements Serializable{
 	 private @Id @GeneratedValue(strategy=GenerationType.AUTO) Long id;
 	 private @Column(name="nome", nullable=false) String nome;
      private @Column(name="email", nullable=false) String email;
-     private @Column(name="email", nullable=false) String password;
+     private @Column(name="password", nullable=false) String password;
      	
 
 }
