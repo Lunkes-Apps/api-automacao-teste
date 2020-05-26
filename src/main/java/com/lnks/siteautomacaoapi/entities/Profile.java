@@ -12,16 +12,15 @@ import javax.persistence.Table;
 import lombok.Data;
 
 @Entity
-@Table(name="perfil")
+@Table(name = "perfil")
 @Data
-public class Profile implements Serializable{
+public class Profile implements Serializable {
 
 	private static final long serialVersionUID = 3827663714334497998L;
-	
-	 private @Id @GeneratedValue(strategy=GenerationType.AUTO) Long id;
-	 private @Column(name="nome", nullable=false) String nome;
-     private @Column(name="email", nullable=false) String email;
-     private @Column(name="password", nullable=false) String password;
-     	
+
+	private @Id @GeneratedValue(strategy = GenerationType.AUTO) Long id;
+	private @Column(name = "nome", nullable = false) String nome;
+	private @Column(name = "email", nullable = false) String email;
+	private @Column(name = "password", nullable = false) String password;
 
 }

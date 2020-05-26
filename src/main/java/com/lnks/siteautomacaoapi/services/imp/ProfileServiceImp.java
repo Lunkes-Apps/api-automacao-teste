@@ -16,18 +16,18 @@ import lombok.extern.slf4j.Slf4j;
 public class ProfileServiceImp implements ProfileService {
 
     @Autowired
-    private ProfileRepository repo;
+    private ProfileRepository profileRepository;
 
     @Override
     public Optional<Profile> buscarPorEmail(String email) {
         log.info("Buscando um profile para o email {}", email);
-        return Optional.ofNullable(repo.findByEmail(email));
+        return Optional.ofNullable(profileRepository.findByEmail(email));
     }
 
     @Override
     public Profile salvaProfile(Profile profile) {
         log.info("Salvando profile: {}", profile);
-        return repo.save(profile);
+        return profileRepository.save(profile);
     }
 
     

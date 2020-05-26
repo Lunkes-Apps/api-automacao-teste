@@ -6,6 +6,14 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public class PasswordUtils {
+
+	/**
+	 * 
+	 * Função para criptografar a senha
+	 * 
+	 * @param password
+	 * @return String
+	 */
 	
 	public static String gerarBCrypt(String password) {
 		if(password == null) {
