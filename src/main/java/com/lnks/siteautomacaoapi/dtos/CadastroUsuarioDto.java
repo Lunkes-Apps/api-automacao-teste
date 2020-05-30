@@ -8,12 +8,14 @@ import org.hibernate.validator.constraints.Length;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class CadastroUsuarioDto {
 
-    private Long id;
+    // private Long id;
 
     @NotEmpty(message = "nome não pode ser vazio")
     @Length(min = 3, max = 200, message = "Nome não pode conter entre 3 a 200 letras")
