@@ -20,6 +20,6 @@ public interface ProfileService {
     * @param profile
     * @return Profile
     */
-    Profile salvaProfile(Profile profile);    
+    Profile salvarProfile(Profile profile);    
 
 }

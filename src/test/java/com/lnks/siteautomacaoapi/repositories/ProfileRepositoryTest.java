@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 
+import lombok.extern.slf4j.Slf4j;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.lnks.siteautomacaoapi.entities.Profile;
@@ -17,6 +19,7 @@ import com.lnks.siteautomacaoapi.utils.PasswordUtils;
 
 @SpringBootTest
 @ActiveProfiles("test")
+@Slf4j
 public class ProfileRepositoryTest {
 
 	
@@ -25,10 +28,12 @@ public class ProfileRepositoryTest {
 	
 	@BeforeEach
 	public void setUp() throws Exception {
-		Profile p = new Profile();
-		p.setEmail("email");
-		p.setNome("nome");
-		p.setPassword(PasswordUtils.gerarBCrypt("password"));
+		Profile p = Profile.builder()
+		.email("email")
+		.nome("nome")
+		.password(PasswordUtils.gerarBCrypt("password"))
+		.build();
+		log.info("Salvando profile com email {}", p.getEmail());
 		this.profileRepository.save(p);
 	}
 	

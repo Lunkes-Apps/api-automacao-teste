@@ -25,7 +25,7 @@ public class ProfileServiceImp implements ProfileService {
     }
 
     @Override
-    public Profile salvaProfile(Profile profile) {
+    public Profile salvarProfile(Profile profile) {
         log.info("Salvando profile: {}", profile);
         return profileRepository.save(profile);
     }

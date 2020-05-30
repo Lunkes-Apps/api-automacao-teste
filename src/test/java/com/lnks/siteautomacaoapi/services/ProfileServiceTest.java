@@ -1,12 +1,12 @@
 package com.lnks.siteautomacaoapi.services;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Optional;
 
 import com.lnks.siteautomacaoapi.entities.Profile;
 import com.lnks.siteautomacaoapi.repositories.ProfileRepository;
-
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -20,7 +20,7 @@ import org.springframework.test.context.ActiveProfiles;
 @SpringBootTest
 @ActiveProfiles("test")
 public class ProfileServiceTest {
-    
+
     @MockBean
     private ProfileRepository profileRepository;
     @Autowired
@@ -29,15 +29,23 @@ public class ProfileServiceTest {
     private static final String EMAIL = "test@test.com";
 
     @BeforeEach
-    public void setUp()throws Exception{
-        BDDMockito.given(this.profileRepository.findByEmail(Mockito.anyString())).willReturn(new Profile());
-        BDDMockito.given(this.profileRepository.save(Mockito.any(Profile.class))).willReturn(new Profile());
+    public void setUp() throws Exception {
+        BDDMockito.given(this.profileRepository
+        .findByEmail(Mockito.anyString())).willReturn(Profile.builder().build());
+        BDDMockito.given(this.profileRepository
+        .save(Mockito.any(Profile.class))).willReturn(Profile.builder().build());
     }
 
     @Test
-    public void testBuscarProfilePorEmail()throws Exception{
+    public void testBuscarProfilePorEmail() throws Exception {
         Optional<Profile> profile = this.profileService.buscarPorEmail(EMAIL);
         assertTrue(profile.isPresent());
-    } 
+    }
+
+    @Test
+    public void testSalvarPerfil() throws Exception {
+        Profile profile = this.profileService.salvarProfile(Profile.builder().build());
+        assertNotNull(profile);
+    }
 
 }
