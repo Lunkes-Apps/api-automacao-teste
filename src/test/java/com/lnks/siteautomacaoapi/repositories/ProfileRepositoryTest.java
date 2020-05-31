@@ -15,8 +15,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import com.lnks.siteautomacaoapi.entities.Profile;
 import com.lnks.siteautomacaoapi.utils.PasswordUtils;
 
-
-
 @SpringBootTest
 @ActiveProfiles("test")
 @Slf4j
