@@ -4,10 +4,14 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import com.lnks.siteautomacaoapi.enuns.PerfilEnum;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -28,5 +32,7 @@ public class Profile implements Serializable {
 	private @Column(name = "nome", nullable = false) String nome;
 	private @Column(name = "email", nullable = false) String email;
 	private @Column(name = "password", nullable = false) String password;
+	private @Column(name = "perfil", nullable = false) 
+	        @Enumerated(EnumType.STRING)PerfilEnum perfil;
 
 }
