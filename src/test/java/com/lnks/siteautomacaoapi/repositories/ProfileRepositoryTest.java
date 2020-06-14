@@ -13,6 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.lnks.siteautomacaoapi.entities.Profile;
+import com.lnks.siteautomacaoapi.enuns.PerfilEnum;
 import com.lnks.siteautomacaoapi.utils.PasswordUtils;
 
 @SpringBootTest
@@ -30,6 +31,7 @@ public class ProfileRepositoryTest {
 		.email("email")
 		.nome("nome")
 		.password(PasswordUtils.gerarBCrypt("password"))
+		.perfil(PerfilEnum.ROLE_USUARIO)
 		.build();
 		log.info("Salvando profile com email {}", p.getEmail());
 		this.profileRepository.save(p);
